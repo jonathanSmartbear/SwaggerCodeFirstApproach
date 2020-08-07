@@ -30,7 +30,7 @@ jobs:
     - name: Run a one-line script
       run: |
         echo npm install,
-        node index.js
+        node app.js
 
 
     # Runs a set of commands using the runners shell
