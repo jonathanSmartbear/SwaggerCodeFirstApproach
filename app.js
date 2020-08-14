@@ -37,6 +37,10 @@ fs.writeFile("apiSpec.json", JSON.stringify(swaggerDocs, null, 4), function(err)
         return console.log(err);
     }
     console.log("The file was saved!");
+
+    server.close(() => {
+      console.log(`Server closed`);
+    });
 }); 
 
 ////////////////////////////////////////////////////////////////////
