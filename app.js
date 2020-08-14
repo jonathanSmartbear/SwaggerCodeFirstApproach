@@ -29,7 +29,7 @@ app.get("/doc",(req,res) =>{
   res.json(swaggerDocs);
 })
 
-// write to json file
+// write to json file and close server
 const fs = require('fs');
 
 fs.writeFile("apiSpec.json", JSON.stringify(swaggerDocs, null, 4), function(err) {
@@ -37,6 +37,10 @@ fs.writeFile("apiSpec.json", JSON.stringify(swaggerDocs, null, 4), function(err)
         return console.log(err);
     }
     console.log("The file was saved!");
+
+    server.close(() => {
+      console.log(`Server closed`);
+    });
 }); 
 
 ////////////////////////////////////////////////////////////////////
@@ -77,6 +81,10 @@ app.put("/customer", (req, res) => {
   res.status(200).send("Successfully updated customer");
 });
 
-app.listen(port, () => {
+var server = app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
+
+
+
