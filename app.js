@@ -64,6 +64,7 @@ app.get("/demo", (req, res) => {
  *        description: Successfully created user
  */
 
+/*
 // write to json file and close server
 const fs = require('fs');
 
@@ -78,7 +79,7 @@ fs.writeFile("apiSpec.json", JSON.stringify(swaggerDocs, null, 4), function(err)
       console.log(`Server closed`);
     });
 }); 
-
+*/
 
 var server = app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
