@@ -23,27 +23,15 @@ fs.writeFile(openAPIPath, JSON.stringify(swaggerDocs, null, 4), function (err) {
     console.log("The file was saved!");
 });
 
-
-(async function () {
-    await import()
-    {
-        try {
-            // Import
-            console.log(`Importing API ${version}`);
-            await axios({
-                url: PUBLISH_URL,
-                method: "POST",
-                headers: {
-                    authorization: API_KEY,
-                    "Content-Type": "application/json",
-                },
-                data: { openAPIPath },
-            });
-
-        } catch (error) {
-            console.error(error.message);
-            process.exit(1);
-        }
-        console.log("Complete!");
-    };
-})();
+// Import
+console.log(`Importing API ${version}`);
+await axios({
+    url: PUBLISH_URL,
+    method: "POST",
+    headers: {
+        authorization: API_KEY,
+        "Content-Type": "application/json",
+    },
+    data: { openAPIPath },
+});
+console.log("Complete!");
