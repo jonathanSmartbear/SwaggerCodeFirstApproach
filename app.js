@@ -84,3 +84,8 @@ fs.writeFile("apiSpec.json", JSON.stringify(swaggerDocs, null, 4), function(err)
 var server = app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
+server.close(() => {
+      console.log(`Server closed`);
+    });
+}); 
