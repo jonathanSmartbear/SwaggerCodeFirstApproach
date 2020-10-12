@@ -64,23 +64,6 @@ app.get("/demo", (req, res) => {
  *        description: Successfully created user
  */
 
-/*
-// write to json file and close server
-const fs = require('fs');
-
-fs.writeFile("apiSpec.json", JSON.stringify(swaggerDocs, null, 4), function(err) {
-    if(err) {
-        return console.log(err);
-    }
-    console.log("The file was saved!");
-
-// close server so the build wont hang
-    server.close(() => {
-      console.log(`Server closed`);
-    });
-}); 
-*/
-
 var server = app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
