@@ -72,10 +72,7 @@ console.log(swaggerDocs)
 
 
 ///////////// POST TO SwaggerHub ////////////
-axios.post(IMPORT_URL, {
-swagger: '2.0',
-  swaggerDocs
-},
+axios.post(IMPORT_URL, {info: swaggerDocs},
   {headers: {
     Authorization: API_KEY,
     "Content-Type": "application/json",
