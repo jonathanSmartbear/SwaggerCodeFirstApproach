@@ -72,7 +72,7 @@ app.get("/doc", (req, res) => {
 
 
 ///////////// POST TO SwaggerHub ////////////
-axios.post(IMPORT_URL, {body:swaggerDocs},
+axios.post(IMPORT_URL, {swagger:swaggerDocs},
   {headers: {
     Authorization: API_KEY,
     "Content-Type": "application/json",
