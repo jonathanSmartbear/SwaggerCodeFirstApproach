@@ -1,11 +1,16 @@
-//
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
+const axios = require("axios");
 
 const swaggerJsDoc = require("swagger-jsdoc");
 
+const owner = "JHDemoProjects";
+const projectFolder = "InternalAPIs";
+const apiName = "DemoExample";
+const API_KEY = "fa8f415b-bd39-450a-bbf0-9033b48b8029";
 
+const IMPORT_URL = `https://api.swaggerhub.com/apis/${owner}/${apiName}?isPrivate=true&version=1.0.0&projectName=${projectFolder}`;
 
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {
@@ -25,10 +30,10 @@ const swaggerOptions = {
 
 
 
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
+let swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 // prints the doc to /doc
-app.get("/doc",(req,res) =>{
+app.get("/doc", (req, res) => {
   res.json(swaggerDocs);
 })
 
@@ -65,54 +70,47 @@ app.get("/demo", (req, res) => {
  *        description: Successfully created user
  */
 
+
+ ////////////////////////////////////////////////
+// write to json file and close server
+//const fs = require('fs');
+
+// fs.writeFile("apiSpec.json", JSON.stringify(swaggerDocs, null, 4), function(err) {
+//     if(err) {
+//         return console.log(err);
+//     }
+//     console.log("The file was saved!");
+
+// // close server so the build wont hang
+//     server.close(() => {
+//       console.log(`Server closed`);
+//     });
+// }); 
+////////////////////////////////////////////////
+
+//swaggerDocs = JSON.stringify(swaggerDocs);
+console.log(swaggerDocs)
+/////////////////////////////////////////
+
+axios.post(IMPORT_URL, {
+  data: swaggerDocs},
+  {headers: {
+    Authorization: API_KEY,
+    "Content-Type": "application/json",
+  }}
+ )
+  .then(function (response) {
+    
+  })
+  .catch(err => console.log(err));
+  console.log("Complete!");
+////////////////////////////////////////
+
 var server = app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
 
+// close server so the build wont hang
 server.close(() => {
-      console.log(`Server closed`);
-    });
-}); 
-
-/////////////////////////////////////////////////////////////////////////////////////
-const axios = require("axios");
-const fs = require("fs");
-
-//bring the json from app.js
-const swaggerDocs = require("swaggerDocs");
-
-// const API_KEY = process.env.SWAGGERHUB_KEY;
-const API_KEY = "fa8f415b-bd39-450a-bbf0-9033b48b8029";
-
-const openAPIPath = "./docs/apiSpec.json";
-const owner = "JHDemoProjects";
-const projectFolder = "InternalAPIs";
-const apiName = "DemoExample";
-
-const IMPORT_URL = `https://api.swaggerhub.com/apis/${owner}/${apiName}?isPrivate=true&version=1.0.0&projectName=${projectFolder}`;
-
-// write to json file
-fs.writeFile(openAPIPath, JSON.stringify(swaggerDocs, null, 4), function (err) {
-    if (err) {
-        return console.log(err);
-    }
-    console.log(`/n/n ${openAPIPath}`);
-    console.log("The file was saved!");
+  console.log(`Server closed`);
 });
-
-// Import
-console.log(`Importing API ${openAPIPath}`);
-
-axios.post(PUBLISH_URL, {
-    headers: {
-        authorization: API_KEY,
-        "Content-Type": "application/json",
-    },
-    data: openAPIPath
-}
-
-).then(function (response) {
-    console.log(response);
-})
-
-console.log("Complete!");
