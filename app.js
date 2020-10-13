@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
+
+const YAML = require('yaml');
 const axios = require("axios");
 
 const swaggerJsDoc = require("swagger-jsdoc");
@@ -68,7 +70,13 @@ let swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.get("/doc", (req, res) => {
   res.json(swaggerDocs);
 })
-console.log(swaggerDocs)
+//console.log(swaggerDocs)
+
+//////// convert json to yaml ////////////////////
+const doc = new YAML.Document();
+doc.contents = swaggerDocs;
+
+console.log(doc.toString());
 /////////////////////////////////////////
 
 axios.post(IMPORT_URL, {
