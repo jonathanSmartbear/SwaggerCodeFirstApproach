@@ -27,5 +27,4 @@ jobs:
       run: |
          npm install
          node app.js
-         node stage2.js
 
