@@ -24,14 +24,20 @@ fs.writeFile(openAPIPath, JSON.stringify(swaggerDocs, null, 4), function (err) {
 });
 
 // Import
-console.log(`Importing API ${version}`);
-await axios({
-    url: PUBLISH_URL,
-    method: "POST",
+console.log(`Importing API ${openAPIPath}`);
+
+axios.post(PUBLISH_URL, {
     headers: {
         authorization: API_KEY,
         "Content-Type": "application/json",
     },
-    data: { openAPIPath },
-});
+    data: openAPIPath
+}
+
+).then(function (response) {
+    console.log(response);
+})
+
 console.log("Complete!");
+
+
