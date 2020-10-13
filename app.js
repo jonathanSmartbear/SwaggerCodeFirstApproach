@@ -62,7 +62,7 @@ app.get("/demo", (req, res) => {
  */
 
 let swaggerDocs = swaggerJsDoc(swaggerOptions);
-swaggerDocs = JSON.stringify(swaggerDocs);
+//swaggerDocs = JSON.stringify(swaggerDocs);
 
 // prints the doc to /doc
 app.get("/doc", (req, res) => {
