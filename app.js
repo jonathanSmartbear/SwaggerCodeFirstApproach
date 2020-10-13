@@ -28,13 +28,6 @@ const swaggerOptions = {
   apis: ["app.js"]
 };
 
-let swaggerDocs = swaggerJsDoc(swaggerOptions);
-
-// prints the doc to /doc
-app.get("/doc", (req, res) => {
-  res.json(swaggerDocs);
-})
-
 // Routes
 /**
  * @swagger
@@ -68,6 +61,12 @@ app.get("/demo", (req, res) => {
  *        description: Successfully created user
  */
 
+let swaggerDocs = swaggerJsDoc(swaggerOptions);
+
+// prints the doc to /doc
+app.get("/doc", (req, res) => {
+  res.json(swaggerDocs);
+})
 console.log(swaggerDocs)
 /////////////////////////////////////////
 
