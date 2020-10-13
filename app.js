@@ -68,11 +68,14 @@ let swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.get("/doc", (req, res) => {
   res.json(swaggerDocs);
 })
-//console.log(swaggerDocs)
+console.log(swaggerDocs)
 
 
 ///////////// POST TO SwaggerHub ////////////
-axios.post(IMPORT_URL, {swagger:swaggerDocs},
+axios.post(IMPORT_URL, {
+swagger: '2.0',
+  {swaggerDocs}
+},
   {headers: {
     Authorization: API_KEY,
     "Content-Type": "application/json",
