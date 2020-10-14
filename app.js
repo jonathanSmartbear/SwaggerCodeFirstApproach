@@ -92,6 +92,6 @@ var server = app.listen(port, () => {
 });
 
 // close server so the build wont hang
-server.close(() => {
-  console.log(`Server closed`);
-});
+//server.close(() => {
+//  console.log(`Server closed`);
+// });
