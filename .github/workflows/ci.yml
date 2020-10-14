@@ -31,12 +31,7 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a set of commands using the runners shell
-#    - name: Run a multi-line script
- #     run: |
-  #       npm install
-   #      node app.js
-
-    # Runs a set of commands using the runners shell
-    - name: Run a readyAPI functinal test
-      run: echo C:\Program Files\SmartBear\ReadyAPI-3.4.0\bin\testrunner.bat" -sTestSuite1 -cTestCase1 -r -a -j -J -fC:\Users\jonathan.harris\Desktop\testRunnerTest\now -o "-RTestCase Report" -Fpdf -EGoogle "C:\Users\jonathan.harris\Desktop\readyAPI project\RESTProjectSampleSwift-readyapi-project.xml
-
+    - name: Run a multi-line script
+      run: |
+         npm install
+         node app.js
