@@ -66,7 +66,7 @@ app.get("/doc", (req, res) => {
 
 ///////////// POST TO SwaggerHub ////////////////////////////////////////////////
 const owner = "JHDemoProjects";
-const projectFolder = "InternalAPIs";
+const projectFolder = "Published";
 const apiName = "DemoExample";
 const API_KEY = "fa8f415b-bd39-450a-bbf0-9033b48b8029";
 
@@ -92,6 +92,6 @@ var server = app.listen(port, () => {
 });
 
 //close server so the build wont hang
-//server.close(() => {
-// console.log(`Server closed`);
-//});
+server.close(() => {
+ console.log(`Server closed`);
+});
