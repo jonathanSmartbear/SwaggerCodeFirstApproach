@@ -35,7 +35,7 @@ const swaggerOptions = {
  */
 
 app.get("/demo", (req, res) => {
-  res.status(200).send("API results");
+  res.status(200).send("API responses");
 });
 
 /**
@@ -92,6 +92,6 @@ var server = app.listen(port, () => {
 });
 
 //close server so the build wont hang
-server.close(() => {
- console.log(`Server closed`);
-});
+//server.close(() => {
+// console.log(`Server closed`);
+//});
