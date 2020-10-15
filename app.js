@@ -76,13 +76,13 @@ const headers = {
   'Authorization': API_KEY
 }
 /////////////////////////////////////////////
-//axios.post(IMPORT_URL, swaggerDocs, {
-//  headers: headers
-//})
-// .then(function (response) {
-//    console.log(response);
-//  })
-//  .catch(err => console.log(err));
+axios.post(IMPORT_URL, swaggerDocs, {
+  headers: headers
+})
+ .then(function (response) {
+    console.log(response);
+  })
+  .catch(err => console.log(err));
 
   console.log("Complete!");
 ////////////////////////////////////////////////////////////////////////////////
