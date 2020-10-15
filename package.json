@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "mvn": "^3.5.0",
     "swagger-jsdoc": "^3.4.0",
     "swagger-ui-express": "^4.0.7"

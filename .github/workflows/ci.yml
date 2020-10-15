@@ -35,4 +35,8 @@ jobs:
       run: |
          npm install
          node app.js
-         node runTest.js
+         
+         
+    # Runs a set of commands using the runners shell
+    - name: Send A job test To TestEngine
+      run: curl -u "admin:testengine" --data-binary "@"./tests/TestEngineSchemaC-readyapi-project.xml" -X POST "http://localhost:8081/api/v1/testjobs?async=false"
