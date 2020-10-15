@@ -76,13 +76,13 @@ const headers = {
   'Authorization': API_KEY
 }
 /////////////////////////////////////////////
-axios.post(IMPORT_URL, swaggerDocs, {
-  headers: headers
-})
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(err => console.log(err));
+//axios.post(IMPORT_URL, swaggerDocs, {
+//  headers: headers
+//})
+// .then(function (response) {
+//    console.log(response);
+//  })
+//  .catch(err => console.log(err));
 
   console.log("Complete!");
 ////////////////////////////////////////////////////////////////////////////////
@@ -91,7 +91,7 @@ var server = app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
 
-//close server so the build wont hang
+close server so the build wont hang
 server.close(() => {
  console.log(`Server closed`);
- });
+});
