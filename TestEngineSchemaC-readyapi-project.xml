@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="73d547a4-48bb-4987-a27f-81c20bb5e628" created="3.4.0" activeEnvironment="Default environment" name="TestEngineSchemaC" updated="3.4.0 2020-09-16T12:11:44Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="168b02e1-ad96-4701-a3f7-35e5dcde1ef2" name="Smartbear Calculator" type="rest_ex" wadlVersion="https://swagger.io/swagger2/specification" definitionUrl="https://api.swaggerhub.com/apis/nathansAPIs/smart-calculator/1.0.0/swagger.json" basePath="/nathansAPIs/smart-calculator/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:description>A simple calculator for internal consumption</con:description>
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart="https://api.swaggerhub.com/apis/nathansAPIs/smart-calculator/1.0.0/swagger.json">
+      <con:part>
+        <con:url>https://api.swaggerhub.com/apis/nathansAPIs/smart-calculator/1.0.0/swagger.json</con:url>
+        <con:content>{"swagger":"2.0","info":{"description":"A simple calculator for internal consumption","version":"1.0.0","title":"Smartbear Calculator","contact":{"email":"math.whizz@smartbear.com"},"license":{"name":"Apache 2.0","url":"http://www.apache.org/licenses/LICENSE-2.0.html"}},"paths":{"/add":{"post":{"summary":"add two numbers together","operationId":"addInput","produces":["application/json"],"parameters":[{"name":"inputOne","in":"query","description":"First input to resolve","required":true,"type":"string"},{"name":"inputTwo","in":"query","description":"First input to resolve","required":true,"type":"string"}],"responses":{"200":{"description":"Successful operation.","schema":{"$ref":"https://api.swaggerhub.com/domains/nathansAPIs/calculator-domain/1.0.0#/definitions/standardResponse"}},"404":{"description":"Bad input.","schema":{"$ref":"https://api.swaggerhub.com/domains/nathansAPIs/calculator-domain/1.0.0#/definitions/standardError"}}}}},"/subtract":{"post":{"summary":"Subtract inputOne from inputTwo","operationId":"subtractInput","produces":["application/json"],"parameters":[{"name":"inputOne","in":"query","description":"First input to resolve","required":true,"type":"string"},{"name":"inputTwo","in":"query","description":"First input to resolve","required":true,"type":"string"}],"responses":{"200":{"description":"Successful operation.","schema":{"$ref":"#/definitions/resultSubtract"}},"404":{"description":"Bad input.","schema":{"$ref":"#/definitions/error"}}}}}},"definitions":{"resultAdd":{"type":"object","required":["result"],"properties":{"result":{"type":"integer","format":"int64","x-disabled-for-amazon-gateway":{"example":4}}}},"resultSubtract":{"type":"object","required":["result"],"properties":{"result":{"type":"integer","format":"int64","x-disabled-for-amazon-gateway":{"example":0}}}},"error":{"type":"object","required":["message"],"properties":{"message":{"type":"string","x-disabled-for-amazon-gateway":{"example":"Error in request"}}}}},"host":"virtserver.swaggerhub.com","basePath":"/nathansAPIs/smart-calculator/1.0.0","schemes":["https","http"]}</con:content>
+        <con:type>https://swagger.io/swagger2/specification</con:type>
+      </con:part>
+      <con:part>
+        <con:url>https://api.swaggerhub.com/domains/nathansAPIs/calculator-domain/1.0.0</con:url>
+        <con:content>{"info":{"description":"This is a sample Domain","version":"1.0.0","title":"Calculator Domain"},"definitions":{"standardResponse":{"type":"object","required":["result"],"properties":{"result":{"type":"string","example":"1234567890"}}},"standardError":{"type":"object","required":["message"],"properties":{"message":{"type":"string","example":"Error in request"}}}},"parameters":{"skipParam":{"name":"skip","in":"query","description":"number of items to skip","type":"integer"},"authHeader":{"name":"auth_header","in":"header","description":"test","type":"string"}}}</con:content>
+        <con:type>https://swagger.io/swagger2/specification</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>http://virtserver.swaggerhub.com</con:endpoint>
+      <con:endpoint>https://virtserver.swaggerhub.com</con:endpoint>
+    </con:endpoints>
+    <con:resource name="/add" path="/add" id="ddef6a80-7fa2-4ab3-bd30-aec254e9d4ff">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="addInput" id="430cfc25-56ff-4e55-ae08-d83fad0ad23d" method="POST">
+        <con:description>add two numbers together</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>inputOne</con:name>
+            <con:style>QUERY</con:style>
+            <con:description>First input to resolve</con:description>
+          </con:parameter>
+          <con:parameter required="true">
+            <con:name>inputTwo</con:name>
+            <con:style>QUERY</con:style>
+            <con:description>First input to resolve</con:description>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent>{
+  "result" : "1234567890"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:sampleContent>{
+  "message" : "Error in request"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="4e967164-cd69-4bfa-81dc-a884ef0c844d" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://virtserver.swaggerhub.com</con:endpoint>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/subtract" path="/subtract" id="e47d5f0a-9bd9-4326-afe6-d3ca9db4a9a6">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="subtractInput" id="f1e126b7-122f-46e4-95ed-cca4f223cdb6" method="POST">
+        <con:description>Subtract inputOne from inputTwo</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>inputOne</con:name>
+            <con:style>QUERY</con:style>
+            <con:description>First input to resolve</con:description>
+          </con:parameter>
+          <con:parameter required="true">
+            <con:name>inputTwo</con:name>
+            <con:style>QUERY</con:style>
+            <con:description>First input to resolve</con:description>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent>{
+  "result" : 0
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:sampleContent>{
+  "message" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="a4a4f8cf-4f9c-4e64-9f20-596ed3b0ec76" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://virtserver.swaggerhub.com</con:endpoint>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="a0a123ed-e35e-4784-8580-a0919072c557" name="Project 4 TestSuite 1">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="1922b521-bdf9-4b74-9c5f-af72672f4363" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="Project 4 TestCase 1" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="restrequest" name="/add POST Request 1" id="722d9724-da6f-42af-bf92-f1a9801d223d">
+        <con:settings/>
+        <con:config service="Smartbear Calculator" resourcePath="/nathansAPIs/smart-calculator/1.0.0/add" methodName="addInput" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="/add POST Request 1" id="4e967164-cd69-4bfa-81dc-a884ef0c844d" mediaType="application/json">
+            <con:settings/>
+            <con:endpoint>http://virtserver.swaggerhub.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://virtserver.swaggerhub.com/nathansAPIs/smart-calculator/1.0.0/add</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="b8918e36-69b8-41db-9b62-79607e997870" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="SwaggerComplianceAssertion" id="7d7d0e15-0682-4668-9afa-313b04284b17" name="Swagger Compliance Assertion">
+              <con:configuration>
+                <swaggerUrl>https://api.swaggerhub.com/apis/nathansAPIs/smart-calculator/1.0.0/swagger.json</swaggerUrl>
+                <strictMode>true</strictMode>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="4965bcd9-b21f-442a-8788-279823ca0182" name="Response SLA">
+              <con:configuration>
+                <SLA>999</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="/subtract POST Request 1" id="10276ad3-e146-4f32-9f91-66ca21019736">
+        <con:settings/>
+        <con:config service="Smartbear Calculator" resourcePath="/nathansAPIs/smart-calculator/1.0.0/subtract" methodName="subtractInput" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="/subtract POST Request 1" id="a4a4f8cf-4f9c-4e64-9f20-596ed3b0ec76" mediaType="application/json">
+            <con:settings/>
+            <con:endpoint>http://virtserver.swaggerhub.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://virtserver.swaggerhub.com/nathansAPIs/smart-calculator/1.0.0/subtract</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="12b59ac9-088e-47af-82df-bc5bebc06d25" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="SwaggerComplianceAssertion" id="b537652b-14fa-423b-9fe4-e72e7a63e9e7" name="Swagger Compliance Assertion">
+              <con:configuration>
+                <swaggerUrl>https://api.swaggerhub.com/apis/nathansAPIs/smart-calculator/1.0.0/swagger.json</swaggerUrl>
+                <strictMode>true</strictMode>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="e57e96b8-010e-4974-b94b-c478677781a6" name="Response SLA">
+              <con:configuration>
+                <SLA>999</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:reportTemplates/>
+    <con:xmlTemplates/>
+    <con:xmlTemplates/>
+    <con:parameters/>
+    <con:parameters/>
+  </con:reporting>
+  <con:reporting/>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>
