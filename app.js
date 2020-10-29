@@ -1,12 +1,13 @@
-// Description API
+///////////////////// Server Dependencies (Express) /////////////////////////////
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
-
+///////////////////// Swagger Dependencies (Spec&API calls) ////////////////////
 const swaggerJsDoc = require("swagger-jsdoc");
 const axios = require("axios");
 
 
+///////////////////// Defining the API and Paths ///////////////////////////////
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {
   swaggerDefinition: {
@@ -34,8 +35,12 @@ const swaggerOptions = {
  *        description: A successful response
  */
 
+
+const divStyle = "color:red;font-size:46px;text-align:center;";
+const HelloWorldComponent = `<div style=${divStyle}>Hello World!</div>`;
+
 app.get("/demo", (req, res) => {
-  res.status(200).send("API responses");
+  res.status(200).send(HelloWorldComponent);
 });
 
 /**
@@ -64,7 +69,9 @@ app.get("/doc", (req, res) => {
   res.json(swaggerDocs);
 })
 
-///////////// POST TO SwaggerHub ////////////////////////////////////////////////
+
+////////////////////////////////////// Section TWO -> SwaggerHub ////////////////////////////////////////////
+//////////////////////////////////////    POST TO SwaggerHub     ////////////////////////////////////////////
 const owner = "JHDemoProjects";
 const projectFolder = "Published";
 const apiName = "DemoExample";
@@ -75,23 +82,23 @@ const headers = {
   'Content-Type': 'application/json',
   'Authorization': API_KEY
 }
-/////////////////////////////////////////////
-axios.post(IMPORT_URL, swaggerDocs, {
-  headers: headers
-})
- .then(function (response) {
-    console.log(response);
-  })
-  .catch(err => console.log(err));
+/////////////////////      Impoting Functon      ////////////////////////
+// axios.post(IMPORT_URL, swaggerDocs, {
+//   headers: headers
+// })
+//  .then(function (response) {
+//     console.log(response);
+//   })
+//   .catch(err => console.log(err));
 
-  console.log("Complete!");
-////////////////////////////////////////////////////////////////////////////////
+//   console.log("Complete!");
+//////////////////////////////////////   End section TWO (Importing to SwaggerHub)  //////////////////////////
 
 var server = app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
 
 //close server so the build wont hang
-server.close(() => {
- console.log(`Server closed`);
-});
+// server.close(() => {
+//  console.log(`Server closed`);
+// });
