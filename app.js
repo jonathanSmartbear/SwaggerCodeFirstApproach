@@ -83,15 +83,15 @@ const headers = {
   'Authorization': API_KEY
 }
 /////////////////////      Impoting Functon      ////////////////////////
-// axios.post(IMPORT_URL, swaggerDocs, {
-//   headers: headers
-// })
-//  .then(function (response) {
-//     console.log(response);
-//   })
-//   .catch(err => console.log(err));
+axios.post(IMPORT_URL, swaggerDocs, {
+  headers: headers
+})
+ .then(function (response) {
+    console.log(response);
+  })
+  .catch(err => console.log(err));
 
-//   console.log("Complete!");
+  console.log("Complete!");
 //////////////////////////////////////   End section TWO (Importing to SwaggerHub)  //////////////////////////
 
 var server = app.listen(port, () => {
@@ -99,6 +99,6 @@ var server = app.listen(port, () => {
 });
 
 //close server so the build wont hang
-// server.close(() => {
-//  console.log(`Server closed`);
-// });
+server.close(() => {
+ console.log(`Server closed`);
+});
