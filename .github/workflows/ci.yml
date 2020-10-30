@@ -39,7 +39,5 @@ jobs:
          
     # Runs a set of commands using the runners shell
     - name: Send A job test To TestEngine
-      run: | 
-        ls
      # run: node testengine -u admin -p testengine -H ec2-3-129-173-1.us-east-2.compute.amazonaws.com:8080 run project TestEngineSchemaC-readyapi-project.xml
-      curl -u "admin:testengine" --data-binary "@TestEngineSchemaC-readyapi-project.xml" -H "Content-Type: application/xml" -H "Accept: application/junit+xml" -X POST "http://ec2-3-129-173-1.us-east-2.compute.amazonaws.com:8080/api/v1/testjobs?async=false"
+      run: curl -u "admin:testengine" --data-binary "@TestEngineSchemaC-readyapi-project.xml" -H "Content-Type:application/xml" -X POST "http://ec2-3-129-173-1.us-east-2.compute.amazonaws.com:8080/api/v1/testjobs?async=false"
